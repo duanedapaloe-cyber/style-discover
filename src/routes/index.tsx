@@ -1,17 +1,19 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowRight, Sparkles, ShieldCheck, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fashionEditorial from "@/assets/fashion-editorial.jpg";
 
 // Replace this anchor with the supplied, verified partner offer destination.
-const OFFER_DESTINATION = "#offer-details";
+const OFFER_DESTINATION = "https://linkthem.net/aff_c?offer_id=1238&aff_id=115643";
+const DESKTOP_URL = "brdymlv.reviews750.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "THE STYLE REVIEW — Fashion Product Reviewer" },
-    { name: "description", content: "Explore an independent fashion product-review partner offer. Potential rewards up to $750, subject to eligibility, offer completion, and verification." },
-    { property: "og:title", content: "THE STYLE REVIEW — Fashion Product Reviewer" },
-    { property: "og:description", content: "Your perspective, thoughtfully considered. Explore an independent fashion partner offer with clear terms and eligibility requirements." },
+    { title: "THE STYLE REVIEW — Brandy Melville Product Reviewer" },
+    { name: "description", content: "Explore an independent Brandy Melville product-review partner offer. Potential rewards up to $750, subject to eligibility, offer completion, and verification." },
+    { property: "og:title", content: "THE STYLE REVIEW — Brandy Melville Product Reviewer" },
+    { property: "og:description", content: "Your perspective, thoughtfully considered. Explore an independent Brandy Melville partner offer with clear terms and eligibility requirements." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -26,6 +28,27 @@ const steps = [
 ];
 
 function Index() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  if (isDesktop) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-background px-6 text-center">
+        <div className="max-w-md">
+          <p className="wordmark mb-6 text-xl">THE STYLE REVIEW</p>
+          <h1 className="hero-title mb-4">Best viewed on mobile</h1>
+          <p className="mb-6 text-sm leading-7 text-muted-foreground">This page is optimised for phones. On a PC or laptop, please visit the desktop page instead:</p>
+          <Button asChild className="offer-button"><a href={`https://${DESKTOP_URL}`}>{DESKTOP_URL} <ArrowUpRight aria-hidden="true" /></a></Button>
+          <p className="mx-auto mt-4 text-[11px] leading-5 text-muted-foreground">Independent promotion — not affiliated with or endorsed by Brandy Melville.</p>
+        </div>
+      </main>
+    );
+  }
   return (
     <div>
       <header className="bg-masthead text-masthead-foreground">
@@ -42,12 +65,12 @@ function Index() {
         <section className="enter px-5 pb-10 pt-11 text-center sm:pb-12 sm:pt-12" aria-labelledby="hero-heading">
           <div className="monogram mx-auto mb-6 flex size-[76px] items-center justify-center rounded-lg border border-border bg-secondary text-rose-ink" aria-label="The Style Review monogram">sr<span className="self-start pt-3 text-xl not-italic">.</span></div>
           <p className="eyebrow mb-4 text-muted-foreground">For the love of everyday style</p>
-          <h1 id="hero-heading" className="hero-title mx-auto max-w-3xl">Fashion Product<br />Reviewer</h1>
+          <h1 id="hero-heading" className="hero-title mx-auto max-w-3xl">Brandy Melville<br />Product Reviewer</h1>
           <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-5 py-2.5 text-sm text-rose-ink">
             <Sparkles className="size-3.5" aria-hidden="true" /> <span>Potential reward: <strong className="font-semibold">up to $750*</strong></span>
           </div>
-          <p className="mx-auto mb-6 mt-5 max-w-[440px] text-sm leading-7 text-muted-foreground">Love the little details? Share your opinions on eligible fashion products and explore a partner-offer opportunity.</p>
-          <Button asChild className="offer-button"><a href={OFFER_DESTINATION}>EXPLORE THE OFFER <ArrowUpRight aria-hidden="true" /></a></Button>
+          <p className="mx-auto mb-6 mt-5 max-w-[440px] text-sm leading-7 text-muted-foreground">Love the little details? Share your opinions on eligible Brandy Melville products and explore a partner-offer opportunity.</p>
+          <Button asChild className="offer-button"><a href={OFFER_DESTINATION} target="_blank" rel="sponsored noopener noreferrer">EXPLORE THE OFFER <ArrowUpRight aria-hidden="true" /></a></Button>
           <p className="mx-auto mt-4 max-w-md text-[11px] leading-5 text-muted-foreground">Independent promotion — not affiliated with or endorsed by Brandy Melville.</p>
           <a href="#terms" className="mt-2 inline-block text-[10px] text-muted-foreground underline decoration-border">*Reward is not guaranteed. Eligibility and terms apply.</a>
         </section>
@@ -83,7 +106,7 @@ function Index() {
           <div className="space-y-3 text-xs leading-6 text-muted-foreground">
             <p>*The potential reward of up to $750 is not guaranteed. Availability, reward amounts, and eligibility vary. Rewards depend on completing the required partner offers and meeting all of the partner’s official eligibility and verification requirements.</p>
             <p>Partner offers may have separate costs, paid trials, or recurring subscriptions. Review all offer terms, cancellation policies, and any financial commitments before opting in. Participation is your choice.</p>
-            <p>THE STYLE REVIEW is an independent fashion product-review / partner-offer promotion. It is not affiliated with or endorsed by Brandy Melville. No reward or bonus is an official Brandy Melville program.</p>
+            <p>THE STYLE REVIEW is an independent Brandy Melville product-review / partner-offer promotion. It is not affiliated with or endorsed by Brandy Melville. No reward or bonus is an official Brandy Melville program.</p>
           </div>
           <div id="offer-details" className="mt-6 border-t border-border pt-5"><h3 className="text-xs font-semibold">Partner offer & official terms</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">A partner offer destination has not yet been supplied. No registration or payment is available on this page. The partner’s full terms must be available before participation opens.</p></div>
         </section>
