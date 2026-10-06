@@ -41,9 +41,10 @@ function Index() {
       <main className="flex min-h-screen items-center justify-center bg-background px-6 text-center">
         <div className="max-w-md">
           <p className="wordmark mb-6 text-xl">THE STYLE REVIEW</p>
-          <h1 className="hero-title mb-4">Best viewed on mobile</h1>
-          <p className="mb-6 text-sm leading-7 text-muted-foreground">This page is optimised for phones. On a PC or laptop, please visit the desktop page instead:</p>
-          <Button asChild className="offer-button"><a href={`https://${DESKTOP_URL}`}>{DESKTOP_URL} <ArrowUpRight aria-hidden="true" /></a></Button>
+          <h1 className="hero-title mb-4">📱 Open on your phone!</h1>
+          <p className="mb-6 text-sm leading-7 text-muted-foreground">This page is designed for mobile. Please open the link below on your smartphone for the best experience.</p>
+          <p className="mb-4 rounded-lg border border-border bg-secondary px-5 py-4 text-lg font-semibold text-rose-ink">{DESKTOP_URL}</p>
+          <Button type="button" className="offer-button" onClick={() => navigator.clipboard?.writeText(`https://${DESKTOP_URL}`)}>Copy link to send to your phone</Button>
           <p className="mx-auto mt-4 text-[11px] leading-5 text-muted-foreground">Independent promotion — not affiliated with or endorsed by Brandy Melville.</p>
         </div>
       </main>
