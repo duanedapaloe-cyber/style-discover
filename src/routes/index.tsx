@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, Sparkles, ShieldCheck, Plus } from "lucide-react";
+import { ArrowUpRight, Sparkles, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fashionEditorial from "@/assets/fashion-editorial.jpg";
 
@@ -30,7 +30,7 @@ const steps = [
 function Index() {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+    const mq = window.matchMedia("(min-width: 1024px)");
     const update = () => setIsDesktop(mq.matches);
     update();
     mq.addEventListener("change", update);
@@ -67,16 +67,15 @@ function Index() {
           <p className="eyebrow mb-4 text-muted-foreground">For the love of everyday style</p>
           <h1 id="hero-heading" className="hero-title mx-auto max-w-3xl">Brandy Melville<br />Product Reviewer</h1>
           <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-5 py-2.5 text-sm text-rose-ink">
-            <Sparkles className="size-3.5" aria-hidden="true" /> <span>Potential reward: <strong className="font-semibold">up to $750*</strong></span>
+            <Sparkles className="size-3.5" aria-hidden="true" /> <span>Potential reward: <strong className="font-semibold">up to $750</strong></span>
           </div>
           <p className="mx-auto mb-6 mt-5 max-w-[440px] text-sm leading-7 text-muted-foreground">Love the little details? Share your opinions on eligible Brandy Melville products and explore a partner-offer opportunity.</p>
           <Button asChild className="offer-button"><a href={OFFER_DESTINATION} target="_blank" rel="sponsored noopener noreferrer">EXPLORE THE OFFER <ArrowUpRight aria-hidden="true" /></a></Button>
           <p className="mx-auto mt-4 max-w-md text-[11px] leading-5 text-muted-foreground">Independent promotion — not affiliated with or endorsed by Brandy Melville.</p>
-          <a href="#terms" className="mt-2 inline-block text-[10px] text-muted-foreground underline decoration-border">*Reward is not guaranteed. Eligibility and terms apply.</a>
         </section>
 
         <section aria-label="Offer at a glance" className="mx-auto grid max-w-[740px] grid-cols-3 border-y border-border px-3 py-6 sm:py-7">
-          {[['Up to $750*', 'Potential reward'], ['4–5', 'Partner offers'], ['Eligibility', 'Applies']].map(([value, label], index) => (
+          {[['Up to $750', 'Potential reward'], ['4–5', 'Partner offers'], ['Eligibility', 'Applies']].map(([value, label], index) => (
             <div key={value} className={`min-w-0 text-center ${index > 0 ? 'border-l border-border' : ''}`}>
               <p className="font-display text-lg font-bold sm:text-2xl">{value}</p>
               <p className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{label}</p>
@@ -90,7 +89,7 @@ function Index() {
             <ol className="grid gap-7 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-8">
               {steps.map((step, index) => <li key={step.title} className="grid grid-cols-[32px_minmax(0,1fr)] gap-4">
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-medium text-rose-ink">{index + 1}</span>
-                <div className="min-w-0"><h3 className="mb-1.5 text-sm font-semibold">{step.title}</h3><p className="text-xs leading-[1.8] text-muted-foreground">{step.copy} {index === 3 && <a href="#terms" className="whitespace-nowrap text-rose-ink underline">Read the terms <ArrowRight className="inline size-3" /></a>}</p></div>
+                <div className="min-w-0"><h3 className="mb-1.5 text-sm font-semibold">{step.title}</h3><p className="text-xs leading-[1.8] text-muted-foreground">{step.copy}</p></div>
               </li>)}
             </ol>
           </div>
@@ -101,19 +100,10 @@ function Index() {
           <figcaption className="mt-3 text-center text-[9px] text-muted-foreground">An everyday-style moodboard. Illustrative imagery; not products promised by the offer.</figcaption>
         </figure>
 
-        <section id="terms" className="mx-auto max-w-[800px] px-6 pb-12 pt-11 sm:px-10" aria-labelledby="terms-heading">
-          <div className="mb-4 flex items-center gap-2.5"><ShieldCheck className="size-4 text-rose-ink" aria-hidden="true" /><h2 id="terms-heading" className="text-sm font-semibold">A little transparency, before you begin</h2></div>
-          <div className="space-y-3 text-xs leading-6 text-muted-foreground">
-            <p>*The potential reward of up to $750 is not guaranteed. Availability, reward amounts, and eligibility vary. Rewards depend on completing the required partner offers and meeting all of the partner’s official eligibility and verification requirements.</p>
-            <p>Partner offers may have separate costs, paid trials, or recurring subscriptions. Review all offer terms, cancellation policies, and any financial commitments before opting in. Participation is your choice.</p>
-            <p>THE STYLE REVIEW is an independent Brandy Melville product-review / partner-offer promotion. It is not affiliated with or endorsed by Brandy Melville. No reward or bonus is an official Brandy Melville program.</p>
-          </div>
-          <div id="offer-details" className="mt-6 border-t border-border pt-5"><h3 className="text-xs font-semibold">Partner offer & official terms</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">A partner offer destination has not yet been supplied. No registration or payment is available on this page. The partner’s full terms must be available before participation opens.</p></div>
-        </section>
       </main>
       <footer className="border-t border-border bg-muted">
         <div className="mx-auto max-w-[1140px] px-6 py-7 sm:px-10">
-          <div className="flex flex-col items-center justify-between gap-5 sm:flex-row"><span className="wordmark text-lg">THE STYLE REVIEW</span><nav aria-label="Footer" className="flex gap-6 text-xs text-muted-foreground"><a href="#terms" className="hover:text-foreground">Terms</a><a href="#privacy" className="hover:text-foreground">Privacy</a><a href="#contact" className="hover:text-foreground">Contact</a></nav></div>
+          <div className="flex flex-col items-center justify-between gap-5 sm:flex-row"><span className="wordmark text-lg">THE STYLE REVIEW</span><nav aria-label="Footer" className="flex gap-6 text-xs text-muted-foreground"><a href={OFFER_DESTINATION} target="_blank" rel="sponsored noopener noreferrer" className="hover:text-foreground">Terms</a><a href="#privacy" className="hover:text-foreground">Privacy</a><a href="#contact" className="hover:text-foreground">Contact</a></nav></div>
           <div className="mt-6 border-t border-border pt-4">
             <details id="privacy" className="text-xs text-muted-foreground"><summary className="flex cursor-pointer list-none items-center justify-between py-2">Privacy <Plus className="size-3" /></summary><p className="pb-3 leading-6">Privacy policy pending. This page has no registration form. Before sharing details on a partner’s page, review that partner’s privacy policy.</p></details>
             <details id="contact" className="text-xs text-muted-foreground"><summary className="flex cursor-pointer list-none items-center justify-between py-2">Contact <Plus className="size-3" /></summary><p className="pb-3 leading-6">Contact information has not yet been supplied.</p></details>
