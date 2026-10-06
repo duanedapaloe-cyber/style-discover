@@ -89,7 +89,7 @@ function Index() {
             <ol className="grid gap-7 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-8">
               {steps.map((step, index) => <li key={step.title} className="grid grid-cols-[32px_minmax(0,1fr)] gap-4">
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-medium text-rose-ink">{index + 1}</span>
-                <div className="min-w-0"><h3 className="mb-1.5 text-sm font-semibold">{step.title}</h3><p className="text-xs leading-[1.8] text-muted-foreground">{step.copy} {index === 3 && <a href="#terms" className="whitespace-nowrap text-rose-ink underline">Read the terms <ArrowRight className="inline size-3" /></a>}</p></div>
+                <div className="min-w-0"><h3 className="mb-1.5 text-sm font-semibold">{step.title}</h3><p className="text-xs leading-[1.8] text-muted-foreground">{step.copy}</p></div>
               </li>)}
             </ol>
           </div>
@@ -100,15 +100,6 @@ function Index() {
           <figcaption className="mt-3 text-center text-[9px] text-muted-foreground">An everyday-style moodboard. Illustrative imagery; not products promised by the offer.</figcaption>
         </figure>
 
-        <section id="terms" className="mx-auto max-w-[800px] px-6 pb-12 pt-11 sm:px-10" aria-labelledby="terms-heading">
-          <div className="mb-4 flex items-center gap-2.5"><ShieldCheck className="size-4 text-rose-ink" aria-hidden="true" /><h2 id="terms-heading" className="text-sm font-semibold">A little transparency, before you begin</h2></div>
-          <div className="space-y-3 text-xs leading-6 text-muted-foreground">
-            <p>*The potential reward of up to $750 is not guaranteed. Availability, reward amounts, and eligibility vary. Rewards depend on completing the required partner offers and meeting all of the partner’s official eligibility and verification requirements.</p>
-            <p>Partner offers may have separate costs, paid trials, or recurring subscriptions. Review all offer terms, cancellation policies, and any financial commitments before opting in. Participation is your choice.</p>
-            <p>THE STYLE REVIEW is an independent Brandy Melville product-review / partner-offer promotion. It is not affiliated with or endorsed by Brandy Melville. No reward or bonus is an official Brandy Melville program.</p>
-          </div>
-          <div id="offer-details" className="mt-6 border-t border-border pt-5"><h3 className="text-xs font-semibold">Partner offer & official terms</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">A partner offer destination has not yet been supplied. No registration or payment is available on this page. The partner’s full terms must be available before participation opens.</p></div>
-        </section>
       </main>
       <footer className="border-t border-border bg-muted">
         <div className="mx-auto max-w-[1140px] px-6 py-7 sm:px-10">
