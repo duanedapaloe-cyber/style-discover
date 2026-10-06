@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, Sparkles, ShieldCheck, Plus } from "lucide-react";
+import { ArrowUpRight, Sparkles, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import fashionEditorial from "@/assets/fashion-editorial.jpg";
 
@@ -30,7 +30,7 @@ const steps = [
 function Index() {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+    const mq = window.matchMedia("(min-width: 1024px)");
     const update = () => setIsDesktop(mq.matches);
     update();
     mq.addEventListener("change", update);
@@ -67,16 +67,15 @@ function Index() {
           <p className="eyebrow mb-4 text-muted-foreground">For the love of everyday style</p>
           <h1 id="hero-heading" className="hero-title mx-auto max-w-3xl">Brandy Melville<br />Product Reviewer</h1>
           <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-5 py-2.5 text-sm text-rose-ink">
-            <Sparkles className="size-3.5" aria-hidden="true" /> <span>Potential reward: <strong className="font-semibold">up to $750*</strong></span>
+            <Sparkles className="size-3.5" aria-hidden="true" /> <span>Potential reward: <strong className="font-semibold">up to $750</strong></span>
           </div>
           <p className="mx-auto mb-6 mt-5 max-w-[440px] text-sm leading-7 text-muted-foreground">Love the little details? Share your opinions on eligible Brandy Melville products and explore a partner-offer opportunity.</p>
           <Button asChild className="offer-button"><a href={OFFER_DESTINATION} target="_blank" rel="sponsored noopener noreferrer">EXPLORE THE OFFER <ArrowUpRight aria-hidden="true" /></a></Button>
           <p className="mx-auto mt-4 max-w-md text-[11px] leading-5 text-muted-foreground">Independent promotion — not affiliated with or endorsed by Brandy Melville.</p>
-          <a href="#terms" className="mt-2 inline-block text-[10px] text-muted-foreground underline decoration-border">*Reward is not guaranteed. Eligibility and terms apply.</a>
         </section>
 
         <section aria-label="Offer at a glance" className="mx-auto grid max-w-[740px] grid-cols-3 border-y border-border px-3 py-6 sm:py-7">
-          {[['Up to $750*', 'Potential reward'], ['4–5', 'Partner offers'], ['Eligibility', 'Applies']].map(([value, label], index) => (
+          {[['Up to $750', 'Potential reward'], ['4–5', 'Partner offers'], ['Eligibility', 'Applies']].map(([value, label], index) => (
             <div key={value} className={`min-w-0 text-center ${index > 0 ? 'border-l border-border' : ''}`}>
               <p className="font-display text-lg font-bold sm:text-2xl">{value}</p>
               <p className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{label}</p>
